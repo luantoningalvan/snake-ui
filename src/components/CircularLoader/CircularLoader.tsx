@@ -1,7 +1,7 @@
 import React from "react";
 import { CircularLoaderContainer } from "./CircularLoader.styles";
 
-interface CircularLoaderProps {
+export interface CircularLoaderProps {
   size: number;
 }
 

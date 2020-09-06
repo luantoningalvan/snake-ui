@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { IconButtonContainer } from "./IconButton.styles";
 
 export interface IconButtonProps {
-  icon: JSX.Element;
+  icon?: JSX.Element;
   variant?: "outlined" | "contained" | "filled";
   size?: "small" | "normal";
   type?: "button" | "submit";
@@ -15,8 +15,9 @@ export const IconButton: React.FC<IconButtonProps> = forwardRef(
       type={type}
       variant={variant}
       size={size}
-      {...rest}
+      /*@ts-ignore */
       ref={ref}
+      {...rest}
     >
       {icon}
     </IconButtonContainer>

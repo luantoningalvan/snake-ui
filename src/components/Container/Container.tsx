@@ -2,8 +2,6 @@ import React from "react";
 
 import { ContainerContainer } from "./Container.styles";
 
-const Container = ({ children, ...rest }) => (
+export const Container: React.FC = ({ children, ...rest }) => (
   <ContainerContainer {...rest}>{children}</ContainerContainer>
 );
-
-export { Container };

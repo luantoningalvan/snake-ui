@@ -12,7 +12,7 @@ export const CardFooter: React.FC<CardFooterProps> = ({
   action,
   label,
 }) => (
-  <CardFooterContainer to={link} onClick={action}>
+  <CardFooterContainer href={link} onClick={action}>
     {label}
   </CardFooterContainer>
 );

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { readableColor } from "polished";
+import { ButtonProps } from "./Button";
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled.button<ButtonProps>`
   background: ${(props) =>
     props.variant === "outlined"
       ? "transparent"

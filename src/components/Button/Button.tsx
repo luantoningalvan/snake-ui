@@ -11,10 +11,13 @@ export interface ButtonProps {
   color: "primary" | "secondary";
 }
 
-export const Button: React.FC<ButtonProps> = React.forwardRef(
-  ({ children, type = "button", ...rest }, ref) => (
-    <ButtonContainer {...rest} ref={ref} type={type}>
-      {children}
-    </ButtonContainer>
-  )
-);
+export const Button: React.FC<ButtonProps> = ({ type, children, ...rest }) => {
+  return (
+    <>
+      {/* @ts-ignore */}
+      <ButtonContainer {...rest} type={type}>
+        {children}
+      </ButtonContainer>
+    </>
+  );
+};

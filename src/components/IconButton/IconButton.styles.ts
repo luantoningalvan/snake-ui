@@ -1,19 +1,11 @@
 import styled from "styled-components";
-import { readableColor } from "polished";
+import { IconButtonProps } from "./IconButton";
 
-export const IconButtonContainer = styled.button`
+export const IconButtonContainer = styled.button<Omit<IconButtonProps, "icon">>`
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) =>
-    props.variant === "outlined"
-      ? `${
-          props.color
-            ? props.theme.palette[props.color]
-            : props.theme.palette.border
-        }`
-      : readableColor(props.theme.palette[props.color] || "yellow")};
   border-radius: 4px;
   font-size: 0.875rem;
   text-align: center;
@@ -22,7 +14,6 @@ export const IconButtonContainer = styled.button`
     border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: none;
   outline: none;
-  width: ${(props) => (props.fullWidth ? "100%" : "inherit")};
   border: ${(props) =>
     props.variant === "outlined"
       ? `1px solid ${
@@ -36,17 +27,6 @@ export const IconButtonContainer = styled.button`
     filter: brightness(90%);
   }
 
-  svg {
-    color: ${(props) =>
-      props.variant === "outlined"
-        ? `${
-            props.color
-              ? props.theme.palette[props.color]
-              : props.theme.palette.border
-          }`
-        : readableColor(props.theme.palette[props.color] || "yellow")};
-    margin-right: 8px;
-  }
   background: ${(props) =>
     props.color ? props.theme.palette[props.color] : "transparent"};
   border-radius: 100%;

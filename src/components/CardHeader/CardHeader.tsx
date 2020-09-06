@@ -1,5 +1,5 @@
 import React from "react";
-import { CardHeaderContainer } from "./styles";
+import { CardHeaderContainer } from "./CardHeader.styles";
 import { Button } from "../Button";
 import { IconButton } from "../IconButton";
 

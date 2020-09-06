@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { CircularLoaderProps } from "./CircularLoader";
 
-export const CircularLoaderContainer = styled.div`
+export const CircularLoaderContainer = styled.div<CircularLoaderProps>`
   @keyframes spin {
     from {
       transform: rotate(0deg);

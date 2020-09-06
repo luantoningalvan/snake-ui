@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
+import { CardProps } from "./Card";
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<CardProps>`
   display: flex;
   flex-direction: column;
   width: 100%;

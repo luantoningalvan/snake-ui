@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-export const PaperContainer = styled.div`
+import { PaperProps } from "./Paper";
+export const PaperContainer = styled.div<PaperProps>`
   background: ${(props) => props.theme.palette.paper};
   color: ${(props) => props.theme.palette.text.primary};
   border-radius: 10px;
