@@ -8,3 +8,8 @@ export * from "./components/Hero";
 export * from "./components/IconButton";
 export * from "./components/Paper";
 export * from "./components/CircularLoader";
+export * from "./components/Modal";
+export * from "./components/Dropdown";
+export * from "./components/Grid";
+export * from "./components/Tab";
+export * from "./components/Tabs";
