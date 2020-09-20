@@ -1,19 +1,19 @@
 import React, { useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Backdrop } from "./Modal.styles";
-import { Paper } from "snake-ui";
+import { Paper } from "../../";
 
-interface ModalProps {
-  onClose?(): void;
+export interface ModalProps {
+  onClose(): void;
   open: boolean;
   title?: string;
   showCloseIcon?: boolean;
 }
 
 export const Modal: React.FC<ModalProps> = (props) => {
-  const { showCloseIcon, title, onClose, children, open } = props;
-  const modalRef = useRef(null);
-  let modalRoot = useRef(null);
+  const { onClose, children, open } = props;
+  const modalRef = useRef<any>(null);
+  const modalRoot = useRef<any>(null);
 
   useEffect(() => {
     if (global.window && !document.getElementById("modal-root")) {

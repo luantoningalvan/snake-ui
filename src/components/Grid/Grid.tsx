@@ -1,30 +1,48 @@
-import * as React from 'react';
-import { Container, Item } from './Grid.styles';
-export type GridItemsAlignment = 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline';
+import * as React from "react";
+import { Container, Item } from "./Grid.styles";
+export type GridItemsAlignment =
+  | "flex-start"
+  | "center"
+  | "flex-end"
+  | "stretch"
+  | "baseline";
 
 export type GridContentAlignment =
-  | 'stretch'
-  | 'center'
-  | 'flex-start'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around';
+  | "stretch"
+  | "center"
+  | "flex-start"
+  | "flex-end"
+  | "space-between"
+  | "space-around";
 
-export type GridDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+export type GridDirection = "row" | "row-reverse" | "column" | "column-reverse";
 
 export type GridSpacing = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 export type GridJustification =
-  | 'flex-start'
-  | 'center'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly';
+  | "flex-start"
+  | "center"
+  | "flex-end"
+  | "space-between"
+  | "space-around"
+  | "space-evenly";
 
-export type GridWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+export type GridWrap = "nowrap" | "wrap" | "wrap-reverse";
 
-export type GridSize = 'auto' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type GridSize =
+  | "auto"
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12;
 
 export interface GridProps {
   /**
@@ -105,19 +123,19 @@ export interface GridProps {
   style?: React.CSSProperties;
 }
 
-const Grid: React.FC<GridProps> = (props) => {
+export const Grid: React.FC<GridProps> = (props) => {
   const {
-    alignContent = 'stretch',
-    alignItems = 'stretch',
+    alignContent = "stretch",
+    alignItems = "stretch",
     container = false,
-    direction = 'row',
+    direction = "row",
     item = false,
-    justifyContent = 'flex-start',
+    justifyContent = "flex-start",
     lg = false,
     md = false,
     sm = false,
     spacing = 0,
-    wrap = 'wrap',
+    wrap = "wrap",
     xl = false,
     xs = false,
     zeroMinWidth = false,
@@ -126,19 +144,21 @@ const Grid: React.FC<GridProps> = (props) => {
   } = props;
 
   const generateClasses = () => {
-    let classes = '';
+    let classes = "";
 
     const breakpoints: { [key: string]: any } = {
       xs,
       sm,
       md,
       lg,
-      xl
+      xl,
     };
 
-    Array.from(['xs', 'sm', 'md', 'lg', 'xl']).map((breakpoint) => {
+    Array.from(["xs", "sm", "md", "lg", "xl"]).map((breakpoint) => {
       if (breakpoints[breakpoint]) {
-        classes = classes.concat(`grid-${breakpoint}-${breakpoints[breakpoint]} `);
+        classes = classes.concat(
+          `grid-${breakpoint}-${breakpoints[breakpoint]} `
+        );
       }
     });
 
@@ -158,9 +178,8 @@ const Grid: React.FC<GridProps> = (props) => {
         style={style}
       />
     );
-  } else if (props.item) {
-    return <Item {...other} className={generateClasses()} />;
   }
+  return <Item {...other} className={generateClasses()} />;
 };
 
 export default Grid;

@@ -28,7 +28,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   open,
   anchorEl,
 }) => {
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<any>(null);
   const [dropdownWidth, setDropdownWidth] = useState(0);
   const [dropdownHeight, setDropdownHeight] = useState(0);
   const { x, y, height, width } = anchorEl?.getBoundingClientRect() || {};
@@ -50,8 +50,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
     }
     if (dropdownRef.current !== null) {
       document.addEventListener("click", clickOutside);
-      setDropdownWidth(dropdownRef.current.clientWidth);
-      setDropdownHeight(dropdownRef.current.clientHeight);
+      setDropdownWidth(dropdownRef?.current.clientWidth);
+      setDropdownHeight(dropdownRef?.current.clientHeight);
 
       if (window.innerWidth > document.documentElement.clientWidth) {
         document.body.setAttribute(
@@ -61,20 +61,24 @@ export const Dropdown: React.FC<DropdownProps> = ({
       } else {
         document.body.setAttribute("style", "overflow: hidden;");
       }
-      dropdownRoot.setAttribute(
-        "style",
-        "position: fixed;z-index: 1300;right: 0px;bottom: 0px;top: 0px;left: 0px;"
-      );
+      dropdownRoot &&
+        dropdownRoot.setAttribute(
+          "style",
+          "position: fixed;z-index: 1300;right: 0px;bottom: 0px;top: 0px;left: 0px;"
+        );
       return () => {
         document.removeEventListener("click", clickOutside);
         document.body.setAttribute("style", "");
 
-        dropdownRoot.setAttribute(
-          "style",
-          "position: fixed;z-index: 1300;right: 0px;bottom: 0px;top: 0px;left: 0px;visibility:hidden;"
-        );
+        dropdownRoot &&
+          dropdownRoot.setAttribute(
+            "style",
+            "position: fixed;z-index: 1300;right: 0px;bottom: 0px;top: 0px;left: 0px;visibility:hidden;"
+          );
       };
     }
+
+    return;
   }, [open]);
 
   if (dropdownRoot) {
