@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Grid } from "../";
+import { Button, IconButton, Grid } from "../";
+import { FiPlusCircle } from "react-icons/fi";
 
 export default {
   title: "Components/Button",
@@ -24,6 +25,10 @@ export const Primary = () => {
           Preenchido
         </Button>
         <Button variant="outlined">Com bordas</Button>
+      </Grid>
+      <Grid item xs={12}>
+        <IconButton icon={<FiPlusCircle />} />
+        <IconButton icon={<FiPlusCircle />} size="small" />
       </Grid>
     </Grid>
   );

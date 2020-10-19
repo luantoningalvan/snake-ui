@@ -57,25 +57,3 @@ export const ButtonContainer = styled.button<ButtonProps>`
   }
 `;
 ButtonContainer.defaultProps = { theme: defaultTheme };
-
-export const IconButtonContainer = styled(ButtonContainer)`
-  background: ${(props) =>
-    props.color ? props.theme.palette[props.color] : "transparent"};
-  border-radius: 100%;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  padding: 8px;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-  svg {
-    height: 20px;
-    width: 20px;
-    margin: 0px;
-    color: ${(props) => props.theme.palette.text.secondary};
-  }
-`;
-
-IconButtonContainer.defaultProps = { theme: defaultTheme };

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { IconButtonProps } from "./IconButton";
+import defaultTheme from "../theme/defaultTheme";
 
 export const IconButtonContainer = styled.button<Omit<IconButtonProps, "icon">>`
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
@@ -14,21 +15,13 @@ export const IconButtonContainer = styled.button<Omit<IconButtonProps, "icon">>`
     border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: none;
   outline: none;
-  border: ${(props) =>
-    props.variant === "outlined"
-      ? `1px solid ${
-          props.color
-            ? props.theme.palette[props.color]
-            : props.theme.palette.border
-        }`
-      : "none"};
+  border: none;
   transition: filter 0.3s;
   &:hover {
     filter: brightness(90%);
   }
 
-  background: ${(props) =>
-    props.color ? props.theme.palette[props.color] : "transparent"};
+  background: transparent;
   border-radius: 100%;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
     border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -45,3 +38,4 @@ export const IconButtonContainer = styled.button<Omit<IconButtonProps, "icon">>`
     color: ${(props) => props.theme.palette.text.secondary};
   }
 `;
+IconButtonContainer.defaultProps = { theme: defaultTheme };

@@ -1,25 +1,22 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { IconButtonContainer } from "./IconButton.styles";
 
-export interface IconButtonProps {
+export interface IconButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: JSX.Element;
-  variant?: "outlined" | "contained" | "filled";
   size?: "small" | "normal";
   type?: "button" | "submit";
-  onClick?: React.MouseEvent<HTMLButtonElement>;
 }
 
-export const IconButton: React.FC<IconButtonProps> = forwardRef(
-  ({ variant, size, icon, type = "button", ...rest }, ref) => (
-    <IconButtonContainer
-      type={type}
-      variant={variant}
-      size={size}
-      /*@ts-ignore */
-      ref={ref}
-      {...rest}
-    >
+export const IconButton: React.FC<IconButtonProps> = ({
+  size,
+  icon,
+  type = "button",
+  ...rest
+}) => {
+  return (
+    <IconButtonContainer type={type} size={size} {...rest}>
       {icon}
     </IconButtonContainer>
-  )
-);
+  );
+};
