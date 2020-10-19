@@ -3,8 +3,8 @@ import { HeroContainer } from "./Hero.styles";
 import makeClassName from "../../utils/makeClassName";
 
 export interface HeroProps {
-  title: string;
-  description: string;
+  title: string | React.ReactNode;
+  description?: string | React.ReactNode;
   actions: React.ReactNode;
   className?: string;
   id?: string;
@@ -21,7 +21,7 @@ export const Hero: React.FC<HeroProps> = ({
   <HeroContainer className={makeClassName("hero", className)} {...rest}>
     <div>
       <h2>{title}</h2>
-      <p>{description}</p>
+      {!!description && <p>{description}</p>}
     </div>
 
     <div className="hero-actions">{actions}</div>

@@ -5,7 +5,7 @@ import { IconButton } from "../IconButton";
 import makeClassName from "../../utils/makeClassName";
 
 export interface CardHeaderProps {
-  title?: string;
+  title?: string | React.ReactNode;
   actions?: any[];
   customContent?: React.ReactNode;
   className?: string;
