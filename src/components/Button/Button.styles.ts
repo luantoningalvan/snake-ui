@@ -1,24 +1,25 @@
 import styled from "styled-components";
 import { readableColor } from "polished";
 import { ButtonProps } from "./Button";
+import defaultTheme from "../theme/defaultTheme";
 
 export const ButtonContainer = styled.button<ButtonProps>`
   background: ${(props) =>
     props.variant === "outlined"
       ? "transparent"
-      : props.theme.palette[props.color]};
+      : props.theme.palette[props.color as string]};
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: ${(props) =>
     props.variant === "outlined"
       ? `${
           props.color
-            ? props.theme.palette[props.color]
+            ? props.theme.palette[props.color as string]
             : props.theme.palette.border
         }`
-      : readableColor(props.theme.palette[props.color] || "yellow")};
+      : readableColor(props.theme.palette[props.color as string] || "yellow")};
   border-radius: 4px;
   font-size: 0.875rem;
   text-align: center;
@@ -32,7 +33,7 @@ export const ButtonContainer = styled.button<ButtonProps>`
     props.variant === "outlined"
       ? `1px solid ${
           props.color
-            ? props.theme.palette[props.color]
+            ? props.theme.palette[props.color as string]
             : props.theme.palette.border
         }`
       : "none"};
@@ -49,10 +50,13 @@ export const ButtonContainer = styled.button<ButtonProps>`
               ? props.theme.palette[props.color]
               : props.theme.palette.border
           }`
-        : readableColor(props.theme.palette[props.color] || "yellow")};
+        : readableColor(
+            props.theme.palette[props.color as string] || "yellow"
+          )};
     margin-right: 8px;
   }
 `;
+ButtonContainer.defaultProps = { theme: defaultTheme };
 
 export const IconButtonContainer = styled(ButtonContainer)`
   background: ${(props) =>
@@ -73,3 +77,5 @@ export const IconButtonContainer = styled(ButtonContainer)`
     color: ${(props) => props.theme.palette.text.secondary};
   }
 `;
+
+IconButtonContainer.defaultProps = { theme: defaultTheme };

@@ -1,23 +1,35 @@
 import React from "react";
 import { ButtonContainer } from "./Button.styles";
+import makeClassName from "../../utils/makeClassName";
 
-export interface ButtonProps {
-  icon?: JSX.Element;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  startIcon?: JSX.Element;
   variant?: "outlined" | "contained" | "filled";
   size?: "small" | "normal";
   type?: "button" | "submit";
   fullWidth?: boolean;
-  onClick?: React.MouseEvent<HTMLButtonElement>;
-  color: "primary" | "secondary";
+  color?: "primary" | "secondary";
+  className?: string;
+  id?: string;
+  styles?: React.CSSProperties;
 }
 
-export const Button: React.FC<ButtonProps> = ({ type, children, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({
+  type,
+  children,
+  className,
+  color = "primary",
+  ...rest
+}) => {
   return (
-    <>
-      {/* @ts-ignore */}
-      <ButtonContainer {...rest} type={type}>
-        {children}
-      </ButtonContainer>
-    </>
+    <ButtonContainer
+      {...rest}
+      type={type}
+      color={color}
+      className={makeClassName("button", className)}
+    >
+      {children}
+    </ButtonContainer>
   );
 };
