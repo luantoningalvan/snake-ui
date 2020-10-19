@@ -1,6 +1,7 @@
 import React from "react";
 import { generate } from "shortid";
 import { Container, Step } from "./Stepper.styles";
+import makeClassName from "../../utils/makeClassName";
 
 export interface StepperProps {
   steps: {
@@ -9,14 +10,19 @@ export interface StepperProps {
   }[];
   currentStep: any;
   onSetStep: any;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
 }
 
 export const Stepper: React.FC<StepperProps> = ({
   steps,
   currentStep,
   onSetStep,
+  className,
+  ...rest
 }) => (
-  <Container>
+  <Container className={makeClassName("stepper", className)} {...rest}>
     {steps.map((step, index) => (
       <Step
         key={generate()}

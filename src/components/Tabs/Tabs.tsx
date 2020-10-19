@@ -1,12 +1,15 @@
 import React from "react";
 import { TabsContainer } from "./Tabs.styles";
+import makeClassName from "../../utils/makeClassName";
 
 export interface TabsProps {
-  style: React.CSSProperties;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
 }
 
-export const Tabs: React.FC = ({ children, ...rest }) => (
-  <TabsContainer className="tab-container" {...rest}>
+export const Tabs: React.FC<TabsProps> = ({ children, className, ...rest }) => (
+  <TabsContainer className={makeClassName("tabs", className)} {...rest}>
     {children}
   </TabsContainer>
 );

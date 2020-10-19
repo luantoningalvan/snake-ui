@@ -2,16 +2,20 @@ import React, { useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Backdrop } from "./Modal.styles";
 import { Paper } from "../../";
+import makeClassName from "../../utils/makeClassName";
 
 export interface ModalProps {
   onClose(): void;
   open: boolean;
   title?: string;
   showCloseIcon?: boolean;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
 }
 
 export const Modal: React.FC<ModalProps> = (props) => {
-  const { onClose, children, open } = props;
+  const { onClose, children, open, className, ...rest } = props;
   const modalRef = useRef<any>(null);
   const modalRoot = useRef<any>(null);
 
@@ -53,7 +57,13 @@ export const Modal: React.FC<ModalProps> = (props) => {
       <>
         <Backdrop onClick={handleBackdropClick}>
           <div ref={modalRef}>
-            <Paper padding={false}>{children}</Paper>
+            <Paper
+              padding={false}
+              className={makeClassName("modal", className)}
+              {...rest}
+            >
+              {children}
+            </Paper>
           </div>
         </Backdrop>
       </>,

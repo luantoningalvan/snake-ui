@@ -1,5 +1,7 @@
 import * as React from "react";
 import { Container, Item } from "./Grid.styles";
+import makeClassName from "../../utils/makeClassName";
+
 export type GridItemsAlignment =
   | "flex-start"
   | "center"
@@ -119,7 +121,8 @@ export interface GridProps {
    * Refer to the limitations section of the documentation to better understand the use case.
    */
   zeroMinWidth?: boolean;
-
+  className?: string;
+  id?: string;
   style?: React.CSSProperties;
 }
 
@@ -139,7 +142,7 @@ export const Grid: React.FC<GridProps> = (props) => {
     xl = false,
     xs = false,
     zeroMinWidth = false,
-    style,
+    className,
     ...other
   } = props;
 
@@ -170,16 +173,17 @@ export const Grid: React.FC<GridProps> = (props) => {
       <Container
         {...other}
         spacing={spacing}
-        className={`spacing-xs-${spacing}`}
+        className={makeClassName(`spacing-xs-${spacing}`, className)}
         alignContent={alignContent}
         alignItems={alignItems}
         justifyContent={justifyContent}
         direction={direction}
-        style={style}
       />
     );
   }
-  return <Item {...other} className={generateClasses()} />;
+  return (
+    <Item {...other} className={makeClassName(generateClasses(), className)} />
+  );
 };
 
 export default Grid;

@@ -2,20 +2,28 @@ import React from "react";
 import { CardHeaderContainer } from "./CardHeader.styles";
 import { Button } from "../Button";
 import { IconButton } from "../IconButton";
+import makeClassName from "../../utils/makeClassName";
 
 export interface CardHeaderProps {
   title?: string;
   actions?: any[];
   customContent?: React.ReactNode;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
 }
 
 export const CardHeader: React.FC<CardHeaderProps> = ({
   customContent,
   title,
   actions,
+  className,
   ...rest
 }) => (
-  <CardHeaderContainer {...rest}>
+  <CardHeaderContainer
+    className={makeClassName("card-header", className)}
+    {...rest}
+  >
     {customContent ? (
       { customContent }
     ) : (

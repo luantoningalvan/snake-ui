@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { DropdownContainer } from "./Dropdown.styles";
+import makeClassName from "../../utils/makeClassName";
 
 interface DropdownProps {
   placement?:
@@ -19,6 +20,9 @@ interface DropdownProps {
   onClose(): void;
   open: boolean;
   anchorEl: any;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -27,6 +31,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
   onClose,
   open,
   anchorEl,
+  className,
+  ...rest
 }) => {
   const dropdownRef = useRef<any>(null);
   const [dropdownWidth, setDropdownWidth] = useState(0);
@@ -107,6 +113,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   height={dropdownHeight}
                   scrolledPixels={scrolledPixels}
                   coordinates={{ top: y, left: x, height, width }}
+                  className={makeClassName("dropdown", className)}
+                  {...rest}
                 >
                   <div className="dropdown-child">
                     <span />

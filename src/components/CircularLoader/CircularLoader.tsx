@@ -1,12 +1,24 @@
 import React from "react";
 import { CircularLoaderContainer } from "./CircularLoader.styles";
+import makeClassName from "../../utils/makeClassName";
 
 export interface CircularLoaderProps {
   size: number;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
 }
 
-export const CircularLoader: React.FC<CircularLoaderProps> = (props) => (
-  <CircularLoaderContainer {...props}>
+export const CircularLoader: React.FC<CircularLoaderProps> = ({
+  size,
+  className,
+  ...rest
+}) => (
+  <CircularLoaderContainer
+    size={size}
+    className={makeClassName("circular-loader", className)}
+    {...rest}
+  >
     <svg viewBox="0 0 40 40">
       <linearGradient id="spinner-gradient">
         <stop offset="0%" stopOpacity="0" />
