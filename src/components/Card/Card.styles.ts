@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { CardProps } from "./Card";
+import defaultTheme from "../theme/defaultTheme";
 
 export const CardContainer = styled.div<CardProps>`
   display: flex;
@@ -19,3 +20,5 @@ export const CardContainer = styled.div<CardProps>`
     }
   `}
 `;
+
+CardContainer.defaultProps = { theme: defaultTheme };
