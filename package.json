@@ -1,6 +1,6 @@
 {
   "name": "snake-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple React UI library",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -52,12 +52,18 @@
     "styled-components": "^5.2.0",
     "ts-jest": "^26.3.0",
     "ts-loader": "^8.0.3",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "polished": "^3.6.6",
+    "react-spring": "^8.0.27",
+    "shortid": "^2.2.15"
   },
   "peerDependencies": {
     "react": "^16",
     "react-dom": "^16",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "polished": "^3.6.6",
+    "react-spring": "^8.0.27",
+    "shortid": "^2.2.15"
   },
   "jest": {
     "preset": "ts-jest",
@@ -79,10 +85,5 @@
       "afterAll",
       "jest"
     ]
-  },
-  "dependencies": {
-    "polished": "^3.6.6",
-    "react-spring": "^8.0.27",
-    "shortid": "^2.2.15"
   }
 }
