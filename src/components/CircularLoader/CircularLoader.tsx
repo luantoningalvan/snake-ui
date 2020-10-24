@@ -3,14 +3,14 @@ import { CircularLoaderContainer } from "./CircularLoader.styles";
 import makeClassName from "../../utils/makeClassName";
 
 export interface CircularLoaderProps {
-  size: number;
+  size?: number;
   className?: string;
   id?: string;
   style?: React.CSSProperties;
 }
 
 export const CircularLoader: React.FC<CircularLoaderProps> = ({
-  size,
+  size = 72,
   className,
   ...rest
 }) => (

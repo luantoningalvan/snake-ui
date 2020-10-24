@@ -3,7 +3,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { Card, CardHeader, CardBody, Collapse } from "../../";
 
 interface AccordionProps {
-  title: string;
+  title: string | JSX.Element;
 }
 
 export const Accordion: React.FC<AccordionProps> = ({

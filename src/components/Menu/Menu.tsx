@@ -4,7 +4,7 @@ import { MenuContainer, MenuItem, MenuItemIcon } from "./Menu.styles";
 
 interface MenuProps extends DropdownProps {
   options: {
-    label: string;
+    label: string | JSX.Element;
     icon?: JSX.Element;
     onClick?(): void;
   }[];
