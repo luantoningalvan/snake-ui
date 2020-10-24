@@ -5,7 +5,7 @@ import makeClassName from "../../utils/makeClassName";
 export interface HeroProps {
   title: string | React.ReactNode;
   description?: string | React.ReactNode;
-  actions: React.ReactNode;
+  actions?: React.ReactNode;
   className?: string;
   id?: string;
   style?: React.CSSProperties;
@@ -24,6 +24,6 @@ export const Hero: React.FC<HeroProps> = ({
       {!!description && <p>{description}</p>}
     </div>
 
-    <div className="hero-actions">{actions}</div>
+    {!!actions && <div className="hero-actions">{actions}</div>}
   </HeroContainer>
 );
