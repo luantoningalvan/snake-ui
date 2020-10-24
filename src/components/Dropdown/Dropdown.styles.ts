@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import defaultTheme from "../theme/defaultTheme";
 
 interface DropdownContainerProps {
   coordinates: {
@@ -179,3 +180,5 @@ export const DropdownContainer = styled.div<DropdownContainerProps>`
       scrolled: props.scrolledPixels,
     })};
 `;
+
+DropdownContainer.defaultProps = { theme: defaultTheme };
