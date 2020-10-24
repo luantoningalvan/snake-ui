@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Container, Item } from "./Grid.styles";
-import makeClassName from "../../utils/makeClassName";
 
 export type GridItemsAlignment =
   | "flex-start"
@@ -121,12 +120,13 @@ export interface GridProps {
    * Refer to the limitations section of the documentation to better understand the use case.
    */
   zeroMinWidth?: boolean;
+
+  style?: React.CSSProperties;
   className?: string;
   id?: string;
-  style?: React.CSSProperties;
 }
 
-export const Grid: React.FC<GridProps> = (props) => {
+const Grid: React.FC<GridProps> = (props) => {
   const {
     alignContent = "stretch",
     alignItems = "stretch",
@@ -142,7 +142,8 @@ export const Grid: React.FC<GridProps> = (props) => {
     xl = false,
     xs = false,
     zeroMinWidth = false,
-    className,
+    className = "",
+    style,
     ...other
   } = props;
 
@@ -165,7 +166,10 @@ export const Grid: React.FC<GridProps> = (props) => {
       }
     });
 
-    return classes;
+    const customClass =
+      className !== null && className !== undefined ? className : "";
+
+    return "snake-grid " + classes + customClass;
   };
 
   if (props.container) {
@@ -173,17 +177,19 @@ export const Grid: React.FC<GridProps> = (props) => {
       <Container
         {...other}
         spacing={spacing}
-        className={makeClassName(`spacing-xs-${spacing}`, className)}
+        className={`spacing-xs-${spacing}`}
         alignContent={alignContent}
         alignItems={alignItems}
         justifyContent={justifyContent}
         direction={direction}
+        style={style}
       />
     );
+  } else if (props.item) {
+    return <Item {...other} className={generateClasses()} style={style} />;
   }
-  return (
-    <Item {...other} className={makeClassName(generateClasses(), className)} />
-  );
+
+  return <Item {...other} className={generateClasses()} style={style} />;
 };
 
 export default Grid;
