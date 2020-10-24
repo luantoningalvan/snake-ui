@@ -8,6 +8,7 @@ export interface CardHeaderProps {
   title?: string | React.ReactNode;
   actions?: any[];
   customContent?: React.ReactNode;
+  onClick?(): void;
   className?: string;
   id?: string;
   style?: React.CSSProperties;
