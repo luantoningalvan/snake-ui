@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { DropdownContainer } from "./Dropdown.styles";
 import makeClassName from "../../utils/makeClassName";
 
-interface DropdownProps {
+export interface DropdownProps {
   placement?:
     | "bottom-end"
     | "bottom-start"
@@ -27,7 +27,7 @@ interface DropdownProps {
 
 export const Dropdown: React.FC<DropdownProps> = ({
   children,
-  placement,
+  placement = "bottom",
   onClose,
   open,
   anchorEl,
