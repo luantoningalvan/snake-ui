@@ -1,6 +1,6 @@
 {
   "name": "snake-ui",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A simple React UI library",
   "main": "build/index.js",
   "module": "build/index.es.js",
