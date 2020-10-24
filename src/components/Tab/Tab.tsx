@@ -3,7 +3,7 @@ import { TabStyle } from "./Tab.styles";
 import makeClassName from "../../utils/makeClassName";
 
 export interface TabProps {
-  label: string;
+  label: string | JSX.Element;
   current: boolean;
   onClick(): any;
   className?: string;
