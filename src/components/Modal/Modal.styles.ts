@@ -11,8 +11,22 @@ export const Backdrop = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
-  > div {
-    min-width: 100px;
+export const ModalContainer = styled.div`
+  min-width: 200px;
+`;
+
+export const ModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+
+  h3 {
+    font-size: 1rem;
+    line-height: 100%;
+    padding: 0px;
+    margin: 0px;
   }
 `;
