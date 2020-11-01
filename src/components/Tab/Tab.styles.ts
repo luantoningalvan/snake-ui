@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const TabStyle = styled.li<{ current: boolean }>`
   list-style: none;
+  cursor: pointer;
   border-bottom: ${(props) =>
     props.current
       ? `3px solid ${props.theme.palette.secondary}`
