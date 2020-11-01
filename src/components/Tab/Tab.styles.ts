@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import defaultTheme from "../theme/defaultTheme";
 
 export const TabStyle = styled.li<{ current: boolean }>`
   list-style: none;
@@ -26,3 +27,5 @@ export const TabStyle = styled.li<{ current: boolean }>`
     }
   }
 `;
+
+TabStyle.defaultProps = { theme: defaultTheme };

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import defaultTheme from "../theme/defaultTheme";
 
 export const ScrollableContainer = styled.div<{ grow?: boolean }>`
   display: flex;
@@ -53,3 +54,5 @@ export const ScrollableContainer = styled.div<{ grow?: boolean }>`
     -webkit-transition: all 0.3s ease-in-out;
   }
 `;
+
+ScrollableContainer.defaultProps = { theme: defaultTheme };

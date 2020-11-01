@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import defaultTheme from "../theme/defaultTheme";
 import { animated } from "react-spring";
 
 const errorColors = {
@@ -73,3 +74,5 @@ export const Container = styled(animated.div)<Props>`
       }
     `}
 `;
+
+Container.defaultProps = { theme: defaultTheme };

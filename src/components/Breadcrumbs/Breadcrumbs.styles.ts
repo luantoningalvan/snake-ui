@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import defaultTheme from "../theme/defaultTheme";
 
 export const Container = styled.ul`
   display: flex;
@@ -8,7 +9,7 @@ export const Container = styled.ul`
     display: flex;
     align-items: center;
     &::before {
-      content: '>';
+      content: ">";
       margin: 0px 8px;
       font-size: 0.6em;
     }
@@ -23,3 +24,5 @@ export const Container = styled.ul`
     text-decoration: underline;
   }
 `;
+
+Container.defaultProps = { theme: defaultTheme };

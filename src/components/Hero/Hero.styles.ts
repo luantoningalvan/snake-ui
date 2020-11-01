@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import defaultTheme from "../theme/defaultTheme";
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -25,3 +26,5 @@ export const HeroContainer = styled.div`
     color: ${(props) => props.theme.palette.text.secondary};
   }
 `;
+
+HeroContainer.defaultProps = { theme: defaultTheme };
