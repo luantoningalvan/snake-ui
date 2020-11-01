@@ -5,11 +5,11 @@ import makeClassName from "../../utils/makeClassName";
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   startIcon?: JSX.Element;
-  variant?: "outlined" | "contained" | "filled";
+  variant?: "outlined" | "contained";
   size?: "small" | "normal";
   type?: "button" | "submit";
   fullWidth?: boolean;
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "neutral";
   className?: string;
   id?: string;
   styles?: React.CSSProperties;
