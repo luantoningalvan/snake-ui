@@ -2,6 +2,7 @@ export default {
   palette: {
     primary: "#1141ad",
     secondary: "#e0b30d",
+    neutral: "#1d2b4e",
     background: "#161b28",
     alert: {
       info: "#0099cc",
