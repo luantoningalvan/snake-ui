@@ -12,7 +12,13 @@ export const Primary = () => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Button style={{ marginRight: 8 }}>Cor primária</Button>
-        <Button color="secondary">Cor secundária</Button>
+        <Button style={{ marginRight: 8 }} color="secondary">
+          Cor secundária
+        </Button>
+        <Button style={{ marginRight: 8 }} color="neutral">
+          Cor neutra
+        </Button>
+        <Button disabled>Desabilitado</Button>
       </Grid>
       <Grid item xs={12}>
         <Button size="normal" style={{ marginRight: 8 }}>
@@ -21,7 +27,7 @@ export const Primary = () => {
         <Button size="small">Tamanho menor</Button>
       </Grid>
       <Grid item xs={12}>
-        <Button variant="filled" style={{ marginRight: 8 }}>
+        <Button variant="contained" style={{ marginRight: 8 }}>
           Preenchido
         </Button>
         <Button variant="outlined">Com bordas</Button>
