@@ -25,3 +25,4 @@ export * from "./components/Tabs";
 export * from "./components/Toast";
 export * from "./components/Tooltip";
 export * from "./components/Drawer";
+export * from "./components/Banner";
