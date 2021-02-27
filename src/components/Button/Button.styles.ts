@@ -35,15 +35,17 @@ export const ButtonContainer = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   text-align: center;
   padding: ${(props) => (props.size === "small" ? "8px" : "12px")};
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
     border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border: none;
   outline: none;
-
   width: ${(props) => (props.fullWidth ? "100%" : "inherit")};
+
+  .snake-button-startIcon { height: 0.9rem;margin-right: 8px; }
+  .snake-button-endIcon { height: 0.9rem;margin-left: 8px; }
 
   ${(props) =>
     getVariantStyle(

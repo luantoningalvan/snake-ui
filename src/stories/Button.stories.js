@@ -33,6 +33,15 @@ export const Primary = () => {
         <Button variant="outlined">Com bordas</Button>
       </Grid>
       <Grid item xs={12}>
+        <Button variant="outlined" fullWidth>Tamanho total</Button>
+      </Grid>
+      <Grid item xs={12}>
+        <Button startIcon={<FiPlusCircle />}  style={{ marginRight: 8 }}>
+          Preenchido
+        </Button>
+        <Button endIcon={<FiPlusCircle />}>Com bordas</Button>
+      </Grid>
+      <Grid item xs={12}>
         <IconButton icon={<FiPlusCircle />} />
         <IconButton icon={<FiPlusCircle />} size="small" />
       </Grid>
